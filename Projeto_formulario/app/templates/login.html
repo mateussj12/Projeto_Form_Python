@@ -1,0 +1,22 @@
+{% extends 'main.html' %}
+
+{% block content %}
+    <form name="form-login" id="formLogin" action="/dologin/" method="post">
+        <div class="col-2 mt-4 m-auto">
+            {% if msg %}
+                <div class="alert {{class}}">
+                    {{msg}}
+                </div>
+            {% endif %}
+            
+            {% csrf_token %}
+            <h3 >Login</h3>
+            <input class="form-control mt-4" type="text" name="username" id="username" placeholder="usuario:">
+            <input class="form-control mt-4" type="password" name="password" id="password" placeholder="Senha:">
+            <input class="btn btn-dark mt-4" type="submit" value="Entrar">
+            <a href="/create/" class="btn btn-success mt-4" role="button" aria-disabled="true">Cadastrar</a>
+            <input class="btn btn-warning mt-4" type="reset" value="Limpar">
+        </div>
+    </form>
+  
+{% endblock %}
